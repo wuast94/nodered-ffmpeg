@@ -13,7 +13,7 @@ RUN apk update && apk add --no-cache \
     libxslt-dev \
     build-base \
     python3-dev \
-    python3-lxml
+    py3-lxml
 
 # Install streamlink using pip
 RUN pip3 install streamlink
