@@ -4,8 +4,15 @@ FROM nodered/node-red:3.1.9
 # Switch to root to install additional packages
 USER root
 
-# Update apk and install ffmpeg and Python
-RUN apk update && apk add --no-cache ffmpeg python3 py3-pip
+# Update apk and install ffmpeg, Python, and necessary development libraries
+RUN apk update && apk add --no-cache \
+    ffmpeg \
+    python3 \
+    py3-pip \
+    libxml2-dev \
+    libxslt-dev \
+    build-base \
+    python3-dev
 
 # Install streamlink using pip
 RUN pip3 install streamlink
