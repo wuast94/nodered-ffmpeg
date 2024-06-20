@@ -17,11 +17,13 @@ RUN apk update && apk add --no-cache \
     py3-pycryptodome \
     pipx
 
-# Install streamlink using pipx and ensure it is globally accessible
-RUN pipx install streamlink && ln -s /root/.local/bin/streamlink /usr/local/bin/streamlink
 
 # Switch back to the node-red user
 USER node-red
+
+# Install streamlink using pipx and ensure it is globally accessible
+RUN pipx install streamlink
+RUN pipx ensurepath
 
 # Ensure the node-red user has the correct PATH
 ENV PATH="/usr/local/bin:${PATH}"
