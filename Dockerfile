@@ -1,5 +1,5 @@
 # Use a specific version of the Node-RED base image
-FROM nodered/node-red:3.1.11
+FROM nodered/node-red:4.0.0
 
 # Switch to root to install additional packages
 USER root
