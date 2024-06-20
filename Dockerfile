@@ -14,10 +14,11 @@ RUN apk update && apk add --no-cache \
     build-base \
     python3-dev \
     py3-lxml \
-    py3-pycryptodome
+    py3-pycryptodome \
+    pipx
 
 # Install streamlink using pip
-RUN pip3 install streamlink
+RUN pipx install streamlink
 
 # Switch back to the node-red user
 USER node-red
