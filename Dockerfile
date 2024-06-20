@@ -19,6 +19,7 @@ RUN apk update && apk add --no-cache \
 
 # Install streamlink using pip
 RUN pipx install streamlink
+RUN pipx ensurepath
 
 # Switch back to the node-red user
 USER node-red
