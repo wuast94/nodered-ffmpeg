@@ -15,7 +15,8 @@ RUN apk update && apk add --no-cache \
     python3-dev \
     py3-lxml \
     py3-pycryptodome \
-    pipx
+    pipx \
+    yt-dlp
 
 
 # Switch back to the node-red user
