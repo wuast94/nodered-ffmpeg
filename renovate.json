@@ -14,9 +14,10 @@
         {
             "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
             "matchStrings": [
-                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s+.*?_VERSION: (?<currentValue>.*?)\\s"
+                "#\\s*renovate:\\s*datasource=(?<datasource>.*?)\\s+depName=(?<depName>.*?)\\s+env:[^}]*?\\s+(?<variable>[A-Z0-9_]+):\\s*(?<currentValue>.*?)\\s"
             ],
-            "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}"
+            "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+            "versioningTemplate": "docker"
         }
     ]
 }
