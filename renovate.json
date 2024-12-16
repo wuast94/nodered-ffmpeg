@@ -2,5 +2,21 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
         "config:recommended"
+    ],
+    "packageRules": [
+        {
+            "groupName": "node-red",
+            "matchPackageNames": ["nodered/node-red"],
+            "matchPaths": ["Dockerfile", ".github/workflows/build-container.yml"]
+        }
+    ],
+    "regexManagers": [
+        {
+            "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
+            "matchStrings": [
+                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s+.*?_VERSION: (?<currentValue>.*?)\\s"
+            ],
+            "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}"
+        }
     ]
 }

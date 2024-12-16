@@ -1,5 +1,9 @@
 name: Build and Push Docker image
 
+# renovate: datasource=docker depName=nodered/node-red
+env:
+  NODE_RED_VERSION: 4.0.5
+
 on:
   push:
     branches:
@@ -38,5 +42,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}/nodered-ffmpeg:4.0.5
+          tags: ghcr.io/${{ github.repository }}/nodered-ffmpeg:${{ env.NODE_RED_VERSION }}
           platforms: linux/amd64, linux/arm64 #linux/arm/v6, linux/arm/v7,
