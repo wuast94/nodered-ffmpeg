@@ -43,4 +43,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}/nodered-ffmpeg:${{ env.NODE_RED_VERSION }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.version=${{ env.NODE_RED_VERSION }}
+            org.opencontainers.image.revision=${{ github.sha }}
           platforms: linux/amd64, linux/arm64 #linux/arm/v6, linux/arm/v7,
